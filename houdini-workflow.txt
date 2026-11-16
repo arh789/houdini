@@ -1,0 +1,701 @@
+## Workflow: coarse-to-fine simulation for MacBook Pro vignette production
+
+```text
+MacBook Pro constraint
+? vignette boundary
+? simple coupled global sim
+? extraction of interaction structure
+? selective subdivision
+? local high-detail sims
+? cache assembly
+? final render/export
+```
+
+The core workflow is:
+
+```text
+1. Define the vignette
+   ??? single/few characters
+   ??? bounded environment
+   ??? short duration
+   ??? one main event
+   ??? visible interaction zones only
+
+2. Build the global simple scene
+   ??? proxy destruction geometry
+   ??? low/medium water domain
+   ??? simplified collisions
+   ??? broad timing
+   ??? simple forces
+   ??? basic camera framing
+
+3. Run the simple coupled sim
+   ??? water sees destruction
+   ??? destruction interacts with water/proxies
+   ??? global causality is established
+   ??? the event becomes coherent before detail is added
+
+4. Extract the governing data
+   ??? impact frames
+   ??? contact points
+   ??? velocity vectors
+   ??? splash zones
+   ??? fracture zones
+   ??? transform paths
+   ??? camera-visible regions
+   ??? timing hierarchy
+
+5. Subdivide only important regions
+   ??? visible destruction pieces
+   ??? visible water impact areas
+   ??? close-up contact zones
+   ??? foreground fragments
+   ??? silhouette-critical effects
+
+6. Run local high-detail sims
+   ??? detailed fracture
+   ??? chips
+   ??? debris
+   ??? splashes
+   ??? ripples
+   ??? drips
+   ??? mist
+   ??? secondary surface behaviour
+
+7. Cache everything separately
+   ??? global simple sim
+   ??? local destruction passes
+   ??? local water passes
+   ??? secondary FX passes
+   ??? preview/final cache versions
+
+8. Reassemble the vignette
+   ??? preserve global timing
+   ??? replace visible proxy regions with detail
+   ??? hide seams with framing/materials/lighting
+   ??? suppress unnecessary live sims
+   ??? render/export the short final output
+```
+
+Compressed:
+
+```text
+Global simple sim = causality
+Subdivision = detail allocation
+Local sims = perceived complexity
+Assembly = final coherence
+```
+
+---
+
+# Nodes holding the space together
+
+These are the stabilising nodes. Remove them and the whole structure collapses back into either brute-force simulation or disconnected modular fragments.
+
+```text
+1. Vignette boundary
+2. MacBook Pro constraint
+3. Simple coupled global pass
+4. Proxy geometry
+5. Global causality
+6. Interaction map
+7. Selective subdivision
+8. Local high-detail passes
+9. Cache discipline
+10. Final visual assembly
+```
+
+## 1. Vignette boundary
+
+```text
+Function:
+keeps the project small enough to be hardware-compatible
+
+Dependencies:
+short duration
+bounded scene
+limited characters/objects
+limited camera-visible regions
+
+Prior:
+the final output is a compressed visual incident, not an open simulation world
+```
+
+This is the main containment node.
+
+Without vignette boundary, subdivision expands indefinitely.
+
+---
+
+## 2. MacBook Pro constraint
+
+```text
+Function:
+forces the workflow away from brute-force coupled simulation
+
+Dependencies:
+unified memory ceiling
+SSD/cache limits
+thermal limits
+no CUDA
+render/export patience
+
+Prior:
+the machine is viable only when peak complexity is controlled
+```
+
+This is not just a limitation. It shapes the whole method.
+
+---
+
+## 3. Simple coupled global pass
+
+```text
+Function:
+establishes shared causality before detail is added
+
+Dependencies:
+proxy objects
+low/medium resolution
+simplified collisions
+short frame range
+one main event
+
+Prior:
+coherence must be solved before complexity
+```
+
+This is the most important technical node.
+
+It prevents the later local sims from feeling disconnected.
+
+---
+
+## 4. Proxy geometry
+
+```text
+Function:
+allows the whole event to be solved cheaply
+
+Dependencies:
+simple collision volumes
+low fragment count
+reduced water domain
+clean transforms
+stable contact surfaces
+
+Prior:
+the simulation needs enough truth to guide detail, not enough truth to be final
+```
+
+The proxy pass is not fake. It is the skeleton.
+
+---
+
+## 5. Global causality
+
+```text
+Function:
+preserves the logic of the event across all later detail passes
+
+Dependencies:
+shared timing
+shared motion paths
+shared collision order
+shared force direction
+shared spatial relation
+
+Prior:
+local complexity must inherit from the same parent event
+```
+
+This is what separates your structure from ordinary compositing.
+
+---
+
+## 6. Interaction map
+
+```text
+Function:
+translates the global pass into instructions for local detail
+
+Dependencies:
+impact zones
+velocity fields
+splash regions
+fracture regions
+visibility masks
+object IDs
+frame ranges
+
+Prior:
+detail should be allocated where interaction pressure concentrates
+```
+
+This is the bridge between global sim and local sim.
+
+---
+
+## 7. Selective subdivision
+
+```text
+Function:
+decides where complexity is allowed to exist
+
+Dependencies:
+camera visibility
+semantic importance
+impact intensity
+foreground/background hierarchy
+hardware budget
+
+Prior:
+subdivide by importance, not possibility
+```
+
+This prevents runaway complexity.
+
+---
+
+## 8. Local high-detail passes
+
+```text
+Function:
+create perceived richness without making the full sim heavy
+
+Dependencies:
+inherited timing
+restricted domain
+local collision context
+short frame range
+cache separation
+
+Prior:
+local sims need visual coherence more than full physical bidirectionality
+```
+
+These are the detail generators.
+
+---
+
+## 9. Cache discipline
+
+```text
+Function:
+keeps the system manageable on limited hardware
+
+Dependencies:
+separate caches
+preview caches
+final caches
+version naming
+cache pruning
+SSD capacity
+
+Prior:
+simulation must become data before assembly
+```
+
+Without caching, the scene stays too live and too fragile.
+
+---
+
+## 10. Final visual assembly
+
+```text
+Function:
+recombines all pieces into a coherent vignette
+
+Dependencies:
+camera framing
+lighting
+materials
+render layers
+cache alignment
+seam hiding
+
+Prior:
+the final truth is the image, not the purity of the simulation
+```
+
+This is where the system stops being engineering and becomes output.
+
+---
+
+# Parent node candidates
+
+## P1 — Coarse-to-fine simulation architecture
+
+```text
+Definition:
+A workflow where a simple global sim establishes causality, then selected regions are refined through local detail passes.
+
+Dependencies:
+global low-resolution pass
+interaction extraction
+subdivision logic
+local high-detail passes
+cache assembly
+
+Priors:
+large coupled sims are too expensive
+global coherence matters
+detail should be selectively allocated
+simulation complexity can be hierarchical
+```
+
+This is the strongest technical parent node.
+
+It directly describes the workflow.
+
+---
+
+## P2 — Bounded procedural vignette production
+
+```text
+Definition:
+A production model where Houdini generates small, contained, high-density visual incidents suitable for a constrained machine.
+
+Dependencies:
+vignette scale
+short duration
+bounded scene
+procedural systems
+local FX
+MacBook-compatible workload
+
+Priors:
+the project is not heavy-FX production
+the output is a vignette, not a full scene
+boundedness makes the machine viable
+```
+
+This is the strongest overall parent node.
+
+It connects hardware, software, and output form.
+
+---
+
+## P3 — Hierarchical FX decomposition
+
+```text
+Definition:
+A method where one complex event is decomposed into parent and child simulation layers.
+
+Dependencies:
+parent global sim
+child local sims
+shared data
+cache hierarchy
+assembly logic
+
+Priors:
+complexity can be distributed
+local detail can inherit global structure
+not all interactions need full bidirectional coupling
+```
+
+This is the best parent if the focus is simulation structure.
+
+---
+
+## P4 — Proxy-coupled simulation pipeline
+
+```text
+Definition:
+A workflow where simplified proxy interactions drive later high-detail visual replacements.
+
+Dependencies:
+proxy geometry
+low-res collisions
+transform inheritance
+collision approximation
+detail replacement
+
+Priors:
+the water/destruction interaction only needs enough physical truth to guide visible detail
+the camera can tolerate proxy/detail mismatch if managed carefully
+```
+
+This is a strong technical sub-parent, but too narrow to hold the whole space alone.
+
+---
+
+## P5 — MacBook-compatible Houdini workload topology
+
+```text
+Definition:
+A hardware-aware workflow that selects Houdini operations compatible with MacBook Pro constraints.
+
+Dependencies:
+bounded scene scale
+cache control
+limited live sims
+CPU/render patience
+high unified memory
+large SSD
+
+Priors:
+Houdini cannot be assessed globally
+hardware fit depends on workload topology
+no CUDA suppresses heavy-GPU paths but not all Houdini use
+```
+
+This is the hardware parent node.
+
+---
+
+## P6 — Simulation-as-structure, detail-as-appearance
+
+```text
+Definition:
+A distinction between the sim layer that establishes event logic and the visual layer that creates perceived richness.
+
+Dependencies:
+simple parent sim
+local detail passes
+visual assembly
+camera-led coherence
+material/lighting/detail enhancement
+
+Priors:
+the viewer needs coherent causality, not exhaustive physical truth
+visual complexity can exceed simulation complexity
+```
+
+This is the most compressed conceptual parent node.
+
+---
+
+# Ranked parent candidates
+
+```text
+1. Bounded procedural vignette production
+2. Coarse-to-fine simulation architecture
+3. Hierarchical FX decomposition
+4. MacBook-compatible Houdini workload topology
+5. Proxy-coupled simulation pipeline
+6. Simulation-as-structure, detail-as-appearance
+```
+
+The best overall parent is:
+
+```text
+Bounded procedural vignette production
+```
+
+because it includes:
+
+```text
+MacBook Pro
++ Houdini
++ vignette
++ no brute-force sim
++ local FX
++ coarse-to-fine workflow
++ final output constraint
+```
+
+The best technical parent is:
+
+```text
+Coarse-to-fine simulation architecture
+```
+
+because it captures the exact method:
+
+```text
+combine simply first
+? subdivide selectively
+? create complexity locally
+? reassemble coherently
+```
+
+---
+
+# Dependencies and priors by major axis
+
+## Hardware axis
+
+```text
+Node:
+MacBook Pro
+
+Dependencies:
+high unified memory
+large SSD
+sustained thermal performance
+bounded scene scale
+short cache ranges
+limited live sims
+
+Priors:
+no CUDA limits heavy GPU paths
+memory/cache pressure matters more than raw possibility
+vignette scale makes the machine viable
+```
+
+## Software axis
+
+```text
+Node:
+Houdini
+
+Dependencies:
+procedural node networks
+simulation solvers
+cache system
+proxy workflows
+lighting/camera/render pipeline
+
+Priors:
+Houdini is strongest when systems are reusable
+simulation should be structured, not brute-forced
+node-based workflows support hierarchical refinement
+```
+
+## Output axis
+
+```text
+Node:
+Vignette
+
+Dependencies:
+bounded scene
+one main event
+small cast/object set
+short duration
+clear camera frame
+contained meaning-unit
+
+Priors:
+smallness is not a weakness
+vignette boundary creates hardware compatibility
+visual coherence matters more than exhaustive simulation scope
+```
+
+## Simulation axis
+
+```text
+Node:
+Coarse-to-fine sim
+
+Dependencies:
+simple global coupled pass
+proxy collision
+interaction map
+local refinement
+cache assembly
+
+Priors:
+causality before complexity
+global first, detail second
+physical coherence can be low-res
+visual richness can be local
+```
+
+## Complexity axis
+
+```text
+Node:
+Selective subdivision
+
+Dependencies:
+visibility
+importance
+interaction intensity
+hardware budget
+cache budget
+frame range
+
+Priors:
+not everything deserves detail
+detail allocation is a decision layer
+complexity must be earned by the final frame
+```
+
+---
+
+# Emerging nodes
+
+These are the nodes now beginning to define the space more strongly than the earlier “MacBook vs Houdini” hardware question.
+
+```text
+1. Coarse global causality
+2. Detail allocation
+3. Interaction map
+4. Proxy truth
+5. Local visual complexity
+6. Cache hierarchy
+7. Camera-visible subdivision
+8. Hardware-compatible simulation architecture
+9. Vignette-scale physical coherence
+10. Final-image truth
+```
+
+The strongest emerging node is:
+
+```text
+detail allocation
+```
+
+Because the problem is no longer:
+
+```text
+Can the machine do complex sims?
+```
+
+It is:
+
+```text
+Where should complexity be allowed to exist?
+```
+
+That is the real governing question.
+
+---
+
+# Final compressed structure
+
+```text
+MacBook Pro
+? imposes hardware constraint
+
+Houdini
+? supplies procedural/simulation system
+
+Vignette
+? supplies boundary and output closure
+
+Coarse global sim
+? establishes causality
+
+Subdivision
+? allocates complexity
+
+Local detail sims
+? create visual richness
+
+Cache assembly
+? restores coherent final image
+```
+
+Most compressed:
+
+```text
+simple global truth
+? selective local complexity
+? coherent vignette
+```
+
+The stable kernel:
+
+```text
+Combine simply first.
+Extract the interaction structure.
+Subdivide only where the vignette needs detail.
+Run local high-detail sims.
+Assemble under the original global causality.
+```
+
+That is the workflow that makes pyro, fluid, and destruction plausible on a MacBook Pro without reverting to brute-force simulation.
